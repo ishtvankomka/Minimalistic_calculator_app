@@ -1,0 +1,289 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+$background_color: #3e3e3e;
+$link_button_color: #010101;
+$display_color: #1e1d1d;
+$text_color_red: #db4d4d;
+$calculator_body_color: #a098ae;
+$key_color: #010101;
+$text_color_white: #d7d8d8;
+
+$button_shadows: 2vh 2vh 6vh #191919,
+-2vh -2vh 6vh #153138;
+$key_shadows: 2vh 2vh 6vh #1e2e32,
+-2vh -2vh 6vh #153138;
+$text_color_white_shadow: 0px 0px 10px #fffbed;
+
+$font_main: 'Press Start 2P',
+cursive;
+
+
+
+@mixin block_common ($direction, $justify, $align) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: $align;
+}
+
+html,
+body {
+    background-color: $background_color;
+    font-family: $font_main;
+}
+
+.header_main {
+    height: 20vh;
+    width: 100vw;
+    @include block_common(row, center, center);
+}
+
+.header_inside {
+    height: 10vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    @media (min-width: 360px) {
+        width: 16rem;
+    }
+
+    @media (min-width: 800px) {
+        width: 24rem;
+    }
+
+    @media (min-width: 1280px) {
+        width: 40rem;
+    }
+}
+
+.header_link {
+    height: 8vh;
+    @include block_common(row, center, center);
+    border-radius: 2vh;
+    background-color: $link_button_color;
+    color: $text_color_white;
+    //box-shadow: $button_shadows;
+
+    @media (min-width: 360px) {
+        height: 4rem;
+        width: 6rem;
+        font-size: small;
+    }
+
+    @media (min-width: 800px) {
+        height: 5rem;
+        width: 10rem;
+        font-size: medium;
+    }
+
+    @media (min-width: 1280px) {
+        height: 5rem;
+        width: 14rem;
+    }
+}
+
+.header_link:hover {
+    color: $text_color_red;
+}
+
+.homepage_main {
+    height: 80vh;
+    width: 100vw;
+    @include block_common(row, center, center);
+}
+
+.calculator_body {
+    @media (min-width: 360px) {
+        height: 25rem;
+        width: 17rem;
+    }
+
+    @media (min-width: 800px) {
+        height: 29rem;
+        width: 18rem;
+    }
+
+    @media (min-width: 1280px) {
+        height: 35rem;
+        width: 22rem;
+    }
+
+    @include block_common(column, center, center);
+    padding-left: 2vw;
+    padding-right: 2vw;
+    border-radius: 2vh;
+    background-color: $calculator_body_color;
+    //box-shadow: $button_shadows;
+}
+
+.display {
+
+    color: $text_color_red;
+    //text-shadow: $text_color_white_shadow;
+    @include block_common(column, center, flex-start);
+
+    @media (min-width: 360px) {
+        height: 4rem;
+        width: 14.25rem;
+    }
+
+    @media (min-width: 800px) {
+        height: 4rem;
+        width: 16.25rem;
+    }
+
+    @media (min-width: 1280px) {
+        height: 6rem;
+        width: 19rem;
+    }
+
+    div {
+        overflow: scroll;
+
+        @include block_common(column, center, flex-start);
+
+        @media (min-width: 360px) {
+            height: 3rem;
+            width: 14.25rem;
+        }
+
+        @media (min-width: 800px) {
+            height: 3rem;
+            width: 16.25rem;
+        }
+
+        @media (min-width: 1280px) {
+            height: 3rem;
+            width: 19rem;
+        }
+
+        border-radius: 0.75rem;
+        border: 0;
+        background-color: $display_color;
+        //box-shadow: $key_shadows;
+
+        span {
+            margin-left: 1rem;
+            margin-right: 1rem;
+        }
+    }
+
+    div::-webkit-scrollbar {
+        display: none;
+    }
+
+    div {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+}
+
+
+.keyboard {
+    @media (min-width: 360px) {
+        height: 20rem;
+        width: 15rem;
+    }
+
+    @media (min-width: 800px) {
+        height: 23rem;
+        width: 17rem;
+    }
+
+    @media (min-width: 1280px) {
+        height: 25rem;
+        width: 20rem;
+    }
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    justify-content: space-between;
+    align-items: center;
+    place-items: center;
+
+    button {
+        @include block_common(column, center, center);
+        border-radius: 0.75rem;
+        border: 0;
+        background-color: $key_color;
+        //box-shadow: $key_shadows;
+
+        @media (min-width: 360px) {
+            height: 3rem;
+            width: 3rem;
+        }
+
+        @media (min-width: 800px) {
+            height: 3.5rem;
+            width: 3.5rem;
+        }
+
+        @media (min-width: 1280px) {
+            height: 4rem;
+            width: 4rem;
+        }
+
+        p {
+            font-family: $font_main;
+            color: $text_color_white;
+            //text-shadow: $text_color_white_shadow;
+        }
+    }
+}
+
+.about_main{
+    @include block_common(column, center, center);
+}
+
+.about_text{
+    @include block_common(column, center, center);
+    height: 15vh;
+    @media (min-width: 360px) {
+        width: 17rem;
+    }
+
+    @media (min-width: 800px) {
+        width: 30rem;
+    }
+
+    @media (min-width: 1280px) {
+        width: 50rem;
+    }
+    color: $text_color_white;
+    text-align: center;
+
+}
+
+.about_links {
+    height: 50vh;
+
+    @include block_common(row, space-between, center);
+
+    @media (min-width: 360px) {
+        width: 17rem;
+    }
+
+    @media (min-width: 800px) {
+        width: 30rem;
+    }
+
+    @media (min-width: 1280px) {
+        width: 50rem;
+    }
+
+    a{
+        @media (min-width: 360px) {
+            width: 7rem;
+        }
+    
+        @media (min-width: 800px) {
+            width: 13rem;
+        }
+    
+        @media (min-width: 1280px) {
+            width: 20rem;
+        }
+    }
+}
